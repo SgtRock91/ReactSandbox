@@ -1,9 +1,11 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import { Button } from '@material-ui/core';
+import { Button, TextField } from '@material-ui/core';
 
 import { connect } from "react-redux";
+import { increment } from "../redux/actions";
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -11,10 +13,10 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-const MainBody = (state, props) => {
+const MainBody = (props) => {
     const classes = useStyles();
 
-    const storeValue = state.displayValue;
+    const count = props.count;
 
     return (
         <div>
@@ -28,7 +30,8 @@ const MainBody = (state, props) => {
                     <Button xs={6}>Click me 2</Button>
                 </Grid>
                 <Grid item xs={12} spacing={3}>
-                    <div xs={12}>store value: {storeValue}</div>
+                    <Button xs={6} onClick={() => { props.increment() }}>Increment</Button>
+                    <TextField xs={6} value={props.count}></TextField>
                 </Grid>
             </Grid>
         </div>
@@ -36,7 +39,7 @@ const MainBody = (state, props) => {
 };
 
 const mapStateToProps = (state) => {
-    return { displayValue: state.core.field };
+    return { count: state.core.count };
 };
 
-export default connect(mapStateToProps)(MainBody);
+export default connect(mapStateToProps, { increment })(MainBody);

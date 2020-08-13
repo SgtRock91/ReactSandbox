@@ -1,13 +1,16 @@
-import { SOME_ACTION } from "../actionTypes";
+import { INCREMENT } from "../actionTypes";
+import { Paper } from "@material-ui/core";
 
 const initialState = {
-    field: 'some value'
+    count: 0
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case SOME_ACTION: {
-        //return updated state
+    case INCREMENT: {
+        return {
+            count: state.count + 1
+        };
       };
     default:
       return state;

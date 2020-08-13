@@ -1,8 +1,8 @@
-import { SOME_ACTION } from "./actionTypes";
+import { INCREMENT } from "./actionTypes";
 
-export const addSomething = (something) => ({
-  type: SOME_ACTION,
+export const increment = () => ({
+  type: INCREMENT,
   payload: {
-    something
+    
   }
 });

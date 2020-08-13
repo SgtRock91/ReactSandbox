@@ -1,14 +1,14 @@
-import { INCREMENT } from "../actionTypes";
+import { SET_CARS } from "../actionTypes";
 
 const initialState = {
-    count: 0
+    cars: []
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case INCREMENT: {
+    case SET_CARS: {
         return {
-            count: state.count + 1
+            cars: action.payload.cars
         };
       };
     default:

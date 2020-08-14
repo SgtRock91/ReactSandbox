@@ -1,12 +1,17 @@
 import { setCars } from '../redux/actions';
 
 export const getCars = () => {
-    return (dispatch, getState) => {
-        const car1 = { vin: 111, make: 'GMC', model: 'Sierra' };
-        const car2 = { vin: 222, make: 'GMC', model: 'Canyon' };
-        const car3 = { vin: 333, make: 'Acura', model: 'RDX' };
+    return async (dispatch, getState) => {
 
-        const cars = [car1, car2, car3];
-        dispatch(setCars(cars));
+        try {
+            const apiUrl = 'http://localhost:3001/cars';
+            const response = await fetch(apiUrl);
+                    
+            const body = await response.json();
+
+            dispatch(setCars(body.cars));
+        } catch (e) {
+            console.log('Fetch Error: ', e)
+        }
     };
 };

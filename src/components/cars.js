@@ -14,7 +14,7 @@ const Cars = (props) => {
             <Grid xs={6}>
                 {cars.map(car => {
                     return (
-                        <TextField xs={12} value={car.vin + ' ' + car.make + ' ' + car.model} />
+                        <TextField xs={12} id={car.vin} value={car.vin + ' ' + car.make + ' ' + car.model} />
                     );
                 })}
             </Grid>

@@ -17,7 +17,7 @@ const MainBody = (props) => {
                     <TextField xs={6} value={count}></TextField>
                 </Grid>
                 <Grid item xs={12} spacing={3}>
-                    <Cars />
+                    <Cars/>
                 </Grid>
             </Grid>
         </div>

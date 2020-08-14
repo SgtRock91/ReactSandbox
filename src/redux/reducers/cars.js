@@ -5,13 +5,13 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  switch (action.type) {
-    case SET_CARS: {
-        return {
-            cars: action.payload.cars
-        };
-      };
-    default:
-      return state;
+  const actionType = action.type;
+
+  if(actionType === SET_CARS) {
+    return {
+      cars: action.payload.cars
+    };
   }
-}
+
+  return state;
+};

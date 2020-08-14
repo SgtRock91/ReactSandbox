@@ -11,10 +11,10 @@ const Cars = (props) => {
     return (
         <div>
             <Button xs={6} onClick={() => {props.getCars()}}>Get Cars</Button>
-            <Grid xs={6}>
+            <Grid>
                 {cars.map(car => {
                     return (
-                        <TextField xs={12} id={car.vin} value={car.vin + ' ' + car.make + ' ' + car.model} />
+                        <TextField xs={12} key={car.vin} value={car.vin + ' ' + car.make + ' ' + car.model} />
                     );
                 })}
             </Grid>

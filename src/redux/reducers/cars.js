@@ -5,7 +5,7 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  const actionType = action.type;
+  const actionType = (action || {}).type;
 
   if(actionType === SET_CARS) {
     return {

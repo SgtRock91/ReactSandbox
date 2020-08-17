@@ -26,8 +26,8 @@ function App() {
   const classes = useStyles();
 
   return (
-    <div className="App">
-      <AppBar position="static">
+    <div >
+      <AppBar position="static" className="App">
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
@@ -37,10 +37,10 @@ function App() {
           </Typography>
           <Button color="inherit">Blank Button</Button>
         </Toolbar>
-          <Paper height="80%">
-            <MainBody></MainBody>
-          </Paper>
       </AppBar>
+      <Paper square={true} elevation={10}>
+            <MainBody/>
+      </Paper>
     </div>
   );
 }

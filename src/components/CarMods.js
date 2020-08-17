@@ -1,11 +1,19 @@
 import React from 'react';
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux';
+import { setCarModName, setCarModPrice, setCarModSKU, addCarMod } from '../redux/actions' 
+
 
 import Grid from '@material-ui/core/Grid';
 import { Button, TextField } from '@material-ui/core';
 
 const CarMods = (props) => {
-    const mods = useSelector(state => state.carMods.mods)
+    const dispatch = useDispatch()
+
+    const mods = useSelector(state => state.carMods.mods);
+    const name = useSelector(state => state.carMods.name);
+    const price = useSelector(state => state.carMods.price);
+    const sku = useSelector(state => state.carMods.sku);
+
 
     return (
         <div>
@@ -13,16 +21,16 @@ const CarMods = (props) => {
             <Grid>
                 {(mods || []).map(mod => {
                     return (
-                        <TextField xs={12} key={mod.sku} value={mod.name + ' ' + mod.price} />
+                        <TextField xs={12} variant="filled" key={mod.sku} value={mod.name + ' ' + mod.price} />
                     );
                 })}
             </Grid>
             <br/>
             <h4>Add Mod</h4>
-            <TextField xs={4} defaultValue='Mod Name' />
-            <TextField xs={4} defaultValue='Mod Price' />
-            <TextField xs={4} defaultValue='Mod SKU' />
-            <Button xs={12}>Add Mod</Button>
+            <TextField xs={4} label="Name" variant="outlined" value={name} onChange={(e) => {dispatch(setCarModName(e.target.value))}} />
+            <TextField xs={4} label="Price" variant="outlined" value={price} onChange={(e) => {dispatch(setCarModPrice(e.target.value))}} />
+            <TextField xs={4} label="Mod SKU" variant="outlined" value={sku} onChange={(e) => {dispatch(setCarModSKU(e.target.value))}} />
+            <Button xs={12} onClick={() => {dispatch(addCarMod())}}>Add Mod</Button>
         </div>
     );
 };

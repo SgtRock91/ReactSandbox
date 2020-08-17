@@ -30,7 +30,7 @@ const CarMods = (props) => {
             <TextField xs={4} label="Name" variant="outlined" value={name} onChange={(e) => {dispatch(setCarModName(e.target.value))}} />
             <TextField xs={4} label="Price" variant="outlined" value={price} onChange={(e) => {dispatch(setCarModPrice(e.target.value))}} />
             <TextField xs={4} label="Mod SKU" variant="outlined" value={sku} onChange={(e) => {dispatch(setCarModSKU(e.target.value))}} />
-            <Button xs={12} onClick={() => {dispatch(addCarMod())}}>Add Mod</Button>
+            <Button variant="contained" color="primary" xs={12} onClick={() => {dispatch(addCarMod())}}>Add Mod</Button>
         </div>
     );
 };

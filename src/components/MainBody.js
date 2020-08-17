@@ -13,10 +13,9 @@ const MainBody = (props) => {
     return (
         <div>
             <Grid container spacing={3}>
-                
                 <Grid item xs={12}>
                     <h3 xs={12}>Simple Redux State Flow</h3>
-                    <Button xs={6} onClick={() => { props.increment() }}>Increment</Button>
+                    <Button variant="contained" color="primary" xs={6} onClick={() => { props.increment() }}>Increment</Button>
                     <TextField xs={6} value={count}></TextField>
                 </Grid>
                 <Grid item xs={12}>

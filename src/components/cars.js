@@ -10,7 +10,7 @@ const Cars = (props) => {
 
     return (
         <div>
-            <Button xs={6} onClick={() => {props.getCars()}}>Get Cars</Button>
+            <Button variant="contained" color="primary" xs={6} onClick={() => {props.getCars()}}>Get Cars</Button>
             <Grid>
                 {cars.map(car => {
                     return (

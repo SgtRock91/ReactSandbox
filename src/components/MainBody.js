@@ -6,28 +6,39 @@ import Cars from './Cars';
 import CarMods from './CarMods';
 import Grid from '@material-ui/core/Grid';
 import { Button, TextField } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
 const MainBody = (props) => {
     const count = props.count;
 
+    const useStyles = makeStyles((theme) => ({
+        item: {
+          padding: theme.spacing(2),
+        },
+      }));
+
+    const classes = useStyles();
+
     return (
-        <div>
-            <Grid container spacing={3}>
-                <Grid item xs={12}>
-                    <h3 xs={12}>Simple Redux State Flow</h3>
-                    <Button variant="contained" color="primary" xs={6} onClick={() => { props.increment() }}>Increment</Button>
-                    <TextField xs={6} value={count}></TextField>
-                </Grid>
-                <Grid item xs={12}>
-                    <h3 xs={12}>Thunk Async State Flow</h3>
-                    <Cars/>
-                </Grid>
-                <Grid item xs={12}>
-                    <h3 xs={12}>Hooks With Redux Flow</h3>
-                    <CarMods />
-                </Grid>
+        <Grid container direction="row" justify="flex-start" alignItems="baseline" spacing={2} className={classes.item}>
+            <Grid item xs={12}>
+                <h3>Simple Redux State Flow</h3>
             </Grid>
-        </div>
+            <Grid item xs={1}>
+                <Button variant="contained" color="primary" xs={12} onClick={() => { props.increment() }}>Increment</Button>
+            </Grid>
+            <Grid item xs={11}>
+                <TextField value={count}></TextField>
+            </Grid>
+            <Grid item xs={12}>
+                <h3>Thunk Async State Flow</h3>
+            </Grid>
+            <Cars/>
+            <Grid item xs={12}>
+                <h3>Hooks With Redux Flow</h3>
+            </Grid>
+            <CarMods />
+        </Grid>
     );
 };
 

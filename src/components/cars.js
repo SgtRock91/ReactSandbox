@@ -9,16 +9,21 @@ const Cars = (props) => {
     const cars = props.cars || [];
 
     return (
-        <div>
-            <Button variant="contained" color="primary" xs={6} onClick={() => {props.getCars()}}>Get Cars</Button>
-            <Grid>
-                {cars.map(car => {
-                    return (
-                        <TextField variant="filled" xs={12} key={car.vin} value={car.vin + ' ' + car.make + ' ' + car.model} />
-                    );
-                })}
+        <Grid container item xs={12} spacing={1}>
+            <Grid item xs={6}>
+                <Button variant="contained" color="primary" onClick={() => {props.getCars()}}>Get Cars</Button>
             </Grid>
-        </div>
+            <Grid item xs={6}>
+                <div />
+            </Grid>
+            {cars.map(car => {
+                return (
+                    <Grid item xs={2}>
+                        <TextField variant="filled" key={car.vin} value={car.vin + ' ' + car.make + ' ' + car.model} />
+                    </Grid>
+                );
+            })}
+       </Grid>
     );
 };
 

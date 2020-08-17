@@ -20,6 +20,9 @@ export default (state = initialState, action) => {
 
   if(type === ADD_CAR_MOD) {
     state.mods = state.mods.concat({ name: state.name, price: state.price, sku: state.sku});
+    state.name = '';
+    state.sku = '';
+    state.price = '';
   } else if(type === SET_CAR_MOD_NAME) {
     state.name = payload.name;
   } else if(type === SET_CAR_MOD_PRICE) {

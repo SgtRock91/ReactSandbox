@@ -22,8 +22,8 @@ const CarMods = (props) => {
             </Grid>
             {(mods || []).map(mod => {
                 return (
-                    <Grid item xs={2}>
-                        <TextField variant="filled" key={mod.sku} value={mod.name + ' ' + mod.price} />
+                    <Grid item xs={2} key={mod.sku} >
+                        <TextField variant="filled" value={mod.name + ' ' + mod.price} />
                     </Grid>
                     
                 );

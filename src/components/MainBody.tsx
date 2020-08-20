@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 import { increment } from "../redux/actions";
 
 import Cars from './Cars';
@@ -8,9 +8,9 @@ import Grid from '@material-ui/core/Grid';
 import { Button, TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
-import PropTypes from 'prop-types';
+import PropTypes, { InferProps } from "prop-types";
 
-const MainBody = (props) => {
+const MainBody: any = (props: InferProps<typeof MainBody.propTypes>) => {
     const count = props.count;
 
     const useStyles = makeStyles((theme) => ({
@@ -27,7 +27,7 @@ const MainBody = (props) => {
                 <h3>Simple Redux State Flow</h3>
             </Grid>
             <Grid item xs={1}>
-                <Button variant="contained" color="primary" xs={12} onClick={() => { props.increment() }}>Increment</Button>
+                <Button variant="contained" color="primary" onClick={() => { props.increment() }}>Increment</Button>
             </Grid>
             <Grid item xs={11}>
                 <TextField value={count}></TextField>
@@ -49,7 +49,7 @@ MainBody.propTypes = {
     price: PropTypes.func.isRequired,
   };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: any) => {
     return { count: state.core.count };
 };
 

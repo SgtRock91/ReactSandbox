@@ -8,6 +8,8 @@ import Grid from '@material-ui/core/Grid';
 import { Button, TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
+import PropTypes from 'prop-types';
+
 const MainBody = (props) => {
     const count = props.count;
 
@@ -41,6 +43,11 @@ const MainBody = (props) => {
         </Grid>
     );
 };
+
+MainBody.propTypes = {
+    count: PropTypes.number.isRequired,
+    price: PropTypes.func.isRequired,
+  };
 
 const mapStateToProps = (state) => {
     return { count: state.core.count };

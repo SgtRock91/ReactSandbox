@@ -4,6 +4,7 @@ import { increment } from "../redux/actions";
 
 import Cars from './Cars';
 import CarMods from './CarMods';
+import MobXTimer from './MobXTimer';
 import Grid from '@material-ui/core/Grid';
 import { Button, TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
@@ -40,6 +41,10 @@ const MainBody: any = (props: InferProps<typeof MainBody.propTypes>) => {
                 <h3>Hooks With Redux Flow</h3>
             </Grid>
             <CarMods />
+            <Grid item xs={12}>
+                <h3>Mobx State Example</h3>
+            </Grid>
+            <MobXTimer />
         </Grid>
     );
 };
